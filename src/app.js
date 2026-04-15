@@ -1,5 +1,5 @@
 import { loadState, saveState } from './storage.js';
-import { addTask, removeTask, toggleTaskCompleted } from './tasks.js';
+import { addTask, completeTask, removeTask } from './tasks.js';
 import { applyCompletionRewards } from './gamification.js';
 import { getAssistantMessage } from './personality.js';
 import { renderMessage, renderStats, renderTasks } from './ui.js';
@@ -55,20 +55,15 @@ function onTaskActions(event) {
     return;
   }
 
-  if (actionButton.dataset.action === 'toggle') {
+  if (actionButton.dataset.action === 'complete') {
     const previousTask = state.tasks.find((task) => task.id === taskId);
-    if (!previousTask) return;
+    if (!previousTask || previousTask.completed) return;
 
-    state = { ...state, tasks: toggleTaskCompleted(state.tasks, taskId) };
-
-    if (!previousTask.completed) {
-      state = applyCompletionRewards(state);
-      updateMessage('completed');
-    } else {
-      updateMessage('idle');
-    }
+    state = { ...state, tasks: completeTask(state.tasks, taskId) };
+    state = applyCompletionRewards(state);
 
     persistAndRender();
+    updateMessage('completed');
   }
 }
 

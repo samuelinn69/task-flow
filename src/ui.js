@@ -17,14 +17,18 @@ function escapeHtml(value) {
 }
 
 function taskItemTemplate(task) {
+  const completionLabel = task.completed ? 'Completada' : 'Completar';
+
   return `
     <li class="task ${task.completed ? 'task--completed' : ''}" data-task-id="${task.id}">
       <p class="task__title">${escapeHtml(task.title)}</p>
-      <button class="task__btn task__btn--complete" data-action="toggle">
-        ${task.completed ? 'Reabrir' : 'Completar'}
+      <button class="task__btn task__btn--complete" data-action="complete" ${
+        task.completed ? 'disabled' : ''
+      }>
+        ${completionLabel}
       </button>
       <button class="task__btn task__btn--delete" data-action="delete">
-        Borrar
+        Eliminar
       </button>
     </li>
   `;

@@ -10,9 +10,9 @@ Aplicación web mobile-first para gestión de tareas con gamificación y persona
    - Módulos separados en `src/`.
 
 2. **Sistema de tareas (CRUD)**
-   - Crear tareas.
-   - Completar/reabrir tareas.
-   - Borrar tareas.
+   - Añadir tareas.
+   - Marcar tareas como completadas.
+   - Eliminar tareas.
 
 3. **Gamificación**
    - +10 puntos por completar una tarea.
@@ -26,7 +26,7 @@ Aplicación web mobile-first para gestión de tareas con gamificación y persona
    - Diseño mobile-first, tarjetas compactas y controles táctiles.
    - Ajuste de layout para pantallas más anchas via media query.
 
-## Almacenamiento local
+## Persistencia en localStorage
 
 Se guarda automáticamente en `localStorage`:
 - tareas
