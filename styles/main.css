@@ -1,0 +1,208 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6ff;
+  --panel: #ffffff;
+  --text: #1f2333;
+  --muted: #59607a;
+  --brand: #5b6df9;
+  --brand-strong: #4958da;
+  --ok: #1f9d59;
+  --danger: #e04b4b;
+  --shadow: 0 8px 24px rgba(31, 35, 51, 0.08);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 50%, #f6f8ff 100%);
+  color: var(--text);
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  box-shadow: var(--shadow);
+}
+
+.app__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.app__header h1 {
+  margin: 0.3rem 0 0;
+  font-size: 1.1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.personality-picker {
+  font-size: 0.82rem;
+  color: var(--muted);
+  display: grid;
+  gap: 0.28rem;
+}
+
+select,
+input,
+button {
+  font: inherit;
+}
+
+select,
+input {
+  border: 1px solid #d5dbf7;
+  border-radius: 10px;
+  padding: 0.55rem 0.65rem;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--brand-strong);
+  cursor: pointer;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.score article {
+  background: #f6f7ff;
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.score__label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.score__value {
+  margin: 0.2rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.assistant-message {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.task {
+  border: 1px solid #e4e8fb;
+  border-radius: 12px;
+  padding: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.task__title {
+  margin: 0;
+}
+
+.task--completed .task__title {
+  text-decoration: line-through;
+  color: #888fb1;
+}
+
+.task__btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.task__btn--complete {
+  background: var(--ok);
+}
+
+.task__btn--delete {
+  background: var(--danger);
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.75rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 1.4rem;
+  }
+
+  .app__header h1 {
+    font-size: 1.35rem;
+  }
+
+  .panel {
+    padding: 1.05rem;
+  }
+}
