@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <main class="app" id="inicio">
+      <header class="panel app__header" id="perfil">
+        <div>
+          <p class="eyebrow">TaskFlow</p>
+          <h1>Organizador con gamificación</h1>
+        </div>
+        <label class="personality-picker">
+          Personalidad
+          <select id="personality-select" aria-label="Seleccionar personalidad del asistente">
+            <option value="motivador">Motivador</option>
+            <option value="sarcastico">Sarcástico</option>
+            <option value="agresivo">Agresivo</option>
+          </select>
+        </label>
+      </header>
+
+      <nav class="quick-nav panel" aria-label="Navegación rápida">
+        <a href="#tareas">Tareas</a>
+        <a href="#progreso">Progreso</a>
+        <a href="#perfil">Perfil</a>
+      </nav>
+
+      <section class="panel score" id="progreso" aria-label="Progreso del jugador">
+        <article>
+          <p class="score__label">Puntos</p>
+          <p id="points" class="score__value">0</p>
+        </article>
+        <article>
+          <p class="score__label">Racha diaria</p>
+          <p id="streak" class="score__value">0 🔥</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Mensaje del asistente">
+        <p id="assistant-message" class="assistant-message">
+          Tu asistente está listo para ayudarte.
+        </p>
+      </section>
+
+      <section class="panel" aria-label="Formulario de nueva tarea">
+        <form id="task-form" class="task-form">
+          <label class="sr-only" for="task-input">Nueva tarea</label>
+          <input id="task-input" type="text" placeholder="Escribe una tarea..." maxlength="120" required />
+          <button type="submit">Crear</button>
+        </form>
+      </section>
+
+      <section class="panel" id="tareas" aria-label="Lista de tareas">
+        <h2>Mis tareas</h2>
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegación principal móvil">
+      <a href="#inicio">Inicio</a>
+      <a href="#tareas">Tareas</a>
+      <a href="#progreso">Progreso</a>
+      <a href="#perfil">Perfil</a>
+    </nav>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
